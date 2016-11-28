@@ -204,8 +204,12 @@ class Maintenance extends Application
         //only delete if editing an existing record
         if(! empty($record))
         {
-            $this->menu->delete($key);
+            $this->Menu->delete($key);
         }
+        
+        $this->session->unset_userdata('key');
+        $this->session->unset_userdata('record');
+
         $this->index();
     }
 
